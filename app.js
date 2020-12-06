@@ -13,7 +13,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 //- 1. Add static middleware
-app.use(express.static('public'));
+//  Serve static files by routing the static server to '/static'
+app.use( '/public', express.static(path.join(__dirname, 'public')) )
 
 app.use(logger('dev'));
 app.use(express.json());
